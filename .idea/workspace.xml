@@ -26,15 +26,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="454c6630-4023-4087-9ac5-6c5c38ad4718" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\www\php-mail-butler\PHPMailButler\data\buero-conf.json" afterPath="" />
-      <change type="DELETED" beforePath="D:\www\php-mail-butler\PHPMailButler\data\steinbruch-conf.json" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/boot.php" afterPath="$PROJECT_DIR$/boot.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/configparser.php" afterPath="$PROJECT_DIR$/lib/configparser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/logger.php" afterPath="$PROJECT_DIR$/lib/logger.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mailreceiver.php" afterPath="$PROJECT_DIR$/mailreceiver.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mailsender.php" afterPath="$PROJECT_DIR$/mailsender.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/phpmailbutler-general-conf.json" afterPath="$PROJECT_DIR$/data/phpmailbutler-general-conf.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/phpmailbutler.php" afterPath="$PROJECT_DIR$/phpmailbutler.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PHPMailButler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -75,10 +69,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="phpmailbutler.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="phpmailbutler.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/phpmailbutler.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="35" selection-start="73" selection-end="73" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="510">
+            <state line="12" column="48" selection-start="359" selection-end="366" vertical-scroll-proportion="0.31432974" vertical-offset="0" max-vertical-offset="649">
               <folding />
             </state>
           </provider>
@@ -87,7 +81,7 @@
       <file leaf-file-name="mailreceiver.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mailreceiver.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="91" selection-start="732" selection-end="815" vertical-scroll-proportion="-23.538462" vertical-offset="0" max-vertical-offset="2159">
+            <state line="41" column="58" selection-start="1168" selection-end="1178" vertical-scroll-proportion="-13.076923" vertical-offset="357" max-vertical-offset="2159">
               <folding>
                 <element signature="e#6#132#0" expanded="true" />
               </folding>
@@ -95,10 +89,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mailsender.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="mailsender.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mailsender.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="6" selection-start="575" selection-end="575" vertical-scroll-proportion="0.47887325" vertical-offset="0" max-vertical-offset="1207">
+            <state line="33" column="46" selection-start="849" selection-end="873" vertical-scroll-proportion="-21.576923" vertical-offset="0" max-vertical-offset="1972">
               <folding />
             </state>
           </provider>
@@ -107,7 +101,16 @@
       <file leaf-file-name="phpmailbutler-general-conf.json" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/phpmailbutler-general-conf.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="102">
+            <state line="14" column="28" selection-start="0" selection-end="338" vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="391">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="customized-conf.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/customized-conf.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="21" selection-start="154" selection-end="154" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="391">
               <folding />
             </state>
           </provider>
@@ -127,11 +130,13 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/mailreceiver.php" />
-        <option value="$PROJECT_DIR$/phpmailbutler.php" />
         <option value="$PROJECT_DIR$/boot.php" />
         <option value="$PROJECT_DIR$/lib/configparser.php" />
         <option value="$PROJECT_DIR$/lib/logger.php" />
         <option value="$PROJECT_DIR$/mailsender.php" />
+        <option value="$PROJECT_DIR$/phpmailbutler.php" />
+        <option value="$PROJECT_DIR$/data/phpmailbutler-general-conf.json" />
+        <option value="$PROJECT_DIR$/data/customized-conf.json" />
       </list>
     </option>
   </component>
@@ -263,20 +268,20 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3298279" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="TeamCity" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24973376" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TeamCity" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -299,13 +304,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/data/phpmailbutler-general-conf.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1020">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/external/Fetch/src/Fetch/Message.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="606" column="49" selection-start="18163" selection-end="18163" vertical-scroll-proportion="0.51307845" vertical-offset="9673" max-vertical-offset="11577">
@@ -313,16 +311,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/phpmailbutler.php">
+    <entry file="file://$PROJECT_DIR$/lib/configparser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="35" selection-start="73" selection-end="73" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="510">
+        <state line="6" column="53" selection-start="127" selection-end="127" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="850">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/configparser.php">
+    <entry file="file://$PROJECT_DIR$/lib/external/PHPMailer/class.phpmailer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="53" selection-start="127" selection-end="127" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="850">
+        <state line="2065" column="23" selection-start="71773" selection-end="71773" vertical-scroll-proportion="0.4275654" vertical-offset="34408" max-vertical-offset="57902">
           <folding />
         </state>
       </provider>
@@ -343,7 +341,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mailreceiver.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="91" selection-start="732" selection-end="815" vertical-scroll-proportion="-23.538462" vertical-offset="0" max-vertical-offset="2159">
+        <state line="41" column="58" selection-start="1168" selection-end="1178" vertical-scroll-proportion="-13.076923" vertical-offset="357" max-vertical-offset="2159">
           <folding>
             <element signature="e#6#132#0" expanded="true" />
           </folding>
@@ -352,7 +350,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mailsender.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="6" selection-start="575" selection-end="575" vertical-scroll-proportion="0.47887325" vertical-offset="0" max-vertical-offset="1207">
+        <state line="33" column="46" selection-start="849" selection-end="873" vertical-scroll-proportion="-21.576923" vertical-offset="0" max-vertical-offset="1972">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/phpmailbutler-general-conf.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="28" selection-start="0" selection-end="338" vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="391">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/customized-conf.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="21" selection-start="154" selection-end="154" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="391">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpmailbutler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="48" selection-start="359" selection-end="366" vertical-scroll-proportion="0.31432974" vertical-offset="0" max-vertical-offset="649">
           <folding />
         </state>
       </provider>

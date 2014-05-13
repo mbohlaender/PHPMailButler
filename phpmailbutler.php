@@ -8,7 +8,7 @@
  */
 include_once("boot.php");
 // build config parser
-$configParser = new ConfigParser(__DIR__."/data/phpmailbutler-general-conf.json",__DIR__."/data/steinbruch-conf.json");
+$configParser = new ConfigParser(__DIR__."/data/phpmailbutler-general-conf.json",__DIR__."/data/customized-conf.json");
 // build logger
 $logger = new Logger($configParser->get("logFile"),"PHPMailButler");
 
