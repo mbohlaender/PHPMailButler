@@ -14,12 +14,13 @@ $logger = new Logger($configParser->get("logFile"),"PHPMailButler");
 
 $logger->addInfo("Starting PHPMailButler...");
 
+// send mails
+$mailSender = new MailSender($configParser,$logger);
+$mailSender->run();
+
 // receive emails
 $mailReceiver = new MailReceiver($configParser,$logger);
 $mailReceiver->run();
 
-// send mails
-$mailSender = new MailSender($configParser,$logger);
-$mailSender->run();
 
 $logger->addInfo("PHPMailButler finished!");

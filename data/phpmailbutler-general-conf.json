@@ -4,6 +4,7 @@
 	"receiveMailServerUsername": "",
 	"receiveMailServerPassword": "",
 
+	"allowedIncomingMailAddresses": "",
 
 	"importPath": "",
 	"exportPath": "",
@@ -13,6 +14,9 @@
 	"sendFromMailAddress": "",
 	"sendFromFullName": "PHPMailButler",
 	"sendToMailAddress": "",
+	"mailSenderServerAddress": "",
+	"mailSenderServerUsername": "",
+	"mailSenderServerPassword": "",
 
 	"logFile": ""
 }

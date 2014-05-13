@@ -9,6 +9,6 @@
 include_once(__DIR__."/lib/external/Fetch/autoload.php");
 include_once(__DIR__."/lib/external/PHPMailer/PHPMailerAutoload.php");
 include_once(__DIR__."/lib/logger.php");
-include_once(__DIR__."mailreceiver.php");
-include_once(__DIR__."mailsender.php");
+include_once(__DIR__."/mailreceiver.php");
+include_once(__DIR__."/mailsender.php");
 include_once(__DIR__."/lib/configparser.php");

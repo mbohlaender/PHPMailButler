@@ -40,6 +40,7 @@ class MailReceiver
 		$mailServerUsername = $this->configParser->get("receiveMailServerUsername");
 		$mailServerPassword = $this->configParser->get("receiveMailServerPassword");
 		$importPath = $this->configParser->get("importPath");
+		$allowedIncomingMailAddresses = $this->configParser->get("allowedIncomingMailAddresses",array());
 
 		if ($mailServerAddress && $mailServerPort && $mailServerUsername && $mailServerPassword)
 		{
@@ -61,6 +62,11 @@ class MailReceiver
 
 					$this->logger->addDebug("Got message from: $from","MAILRECEIVER");
 
+					if (count($allowedIncomingMailAddresses) > 0 && !in_array($from,$allowedIncomingMailAddresses))
+					{ // check whether email address is supported
+						$this->logger->addError("Mail address is not supported: $from","MAILRECEIVER");
+						continue;
+					}
 					$attachments = $message->getAttachments();
 					if ($attachments)
 					{

@@ -21,10 +21,12 @@ class ConfigParser
 	{
 		$this->configFile = $_configFile;
 		$this->customizedConfigFile = $_customizedConfigFile;
+
 		if (file_exists($this->configFile) && file_exists($this->customizedConfigFile))
 		{
-			$defaultValues = json_decode($this->configFile,true);
-			$customizedValues = json_decode($this->customizedConfigFile,true);
+			$defaultValues = json_decode(file_get_contents($this->configFile),true);
+			$customizedValues = json_decode(file_get_contents($this->customizedConfigFile),true);
+
 			$this->configValues = array_merge($defaultValues,$customizedValues);
 		}
 	}

@@ -35,15 +35,25 @@ class MailSender
 		$exportBackupPath = $this->configParser->get("exportBackupPath");
 		$exportFileTypes = $this->configParser->get("exportFileTypes",array());
 		$fromMailAddress = $this->configParser->get("sendFromMailAddress");
+		$mailSenderServerAddress = $this->configParser->get("mailSenderServerAddress");
+		$mailSenderServerUsername = $this->configParser->get("mailSenderServerUsername");
+		$mailSenderServerPassword = $this->configParser->get("mailSenderServerPassword");
 		$fromFullName = $this->configParser->get("sendFromFullName","bau-rec");
 		$toMailAddress = $this->configParser->get("sendToMailAddress");
 
-		$this->logger->addDebug("Export Path: $exportPath, export backup path: $exportBackupPath, export filetypes: $exportFileTypes, from: $fromMailAddress, full name: $fromFullName, to: $toMailAddress","MAILSENDER");
+		$this->logger->addDebug("Export Path: $exportPath, export backup path: $exportBackupPath, export filetypes: ".implode(" ",$exportFileTypes).", from: $fromMailAddress, full name: $fromFullName, to: $toMailAddress","MAILSENDER");
 
-		if ($exportPath && $exportBackupPath && $fromMailAddress && $fromFullName && $toMailAddress)
+		if ($exportPath && $exportBackupPath && $fromMailAddress && $fromFullName && $toMailAddress && $mailSenderServerAddress && $mailSenderServerUsername && $mailSenderServerPassword)
 		{
 			// generate the response mail for the current customer
 			$mail = new PHPMailer();
+
+			$mail->IsSMTP();                                   // per SMTP verschicken
+			$mail->Host     = $mailSenderServerAddress; // SMTP-Server
+			$mail->SMTPAuth = true;     // SMTP mit Authentifizierung benutzen
+			$mail->Username = $mailSenderServerUsername;  // SMTP-Benutzername
+			$mail->Password = $mailSenderServerPassword; // SMTP-Passwort
+
 
 			$mail->WordWrap = 200;
 			$mail->CharSet = "UTF-8";
@@ -51,7 +61,7 @@ class MailSender
 			$mail->Subject = "Datenaustausch Waage - Faktura";
 			$mail->From = $fromMailAddress;
 			$mail->FromName = $fromFullName;
-			$mail->AddAddress($toMailAddress);
+			$mail->addAddress($toMailAddress);
 
 			$mail->Body = "Im Anhang befinden sich alle Dateien, die für Ihren Import bereit stehen.";
 
@@ -84,27 +94,31 @@ class MailSender
 				}
 			}
 
-			// send mail
-			$this->logger->addDebug("Trying to send email to \"$toMailAddress\" with ".count($addedAttachments)." attachments","MAILSENDER");
-			if ($mail->Send())
+			if (count($addedAttachments) > 0)
 			{
-				$this->logger->addDebug("Email successfully sent","MAILSENDER");
-			}
-			else $this->logger->addError("Email couldn't be sent","MAILSENDER");
-
-			// backup attachments, delete from the main export path
-			foreach ($addedAttachments as $addedAttachment)
-			{
-				// check whether we can backup the exported files
-				if (is_dir("$exportBackupPath"))
-				{ // backup directory exists
-					$this->logger->addDebug("Add $addedAttachment to the backup directory.","MAILSENDER");
-					copy("$exportPath/$addedAttachment","$exportBackupPath/$addedAttachment");
+				// send mail
+				$this->logger->addDebug("Trying to send email to \"$toMailAddress\" with ".count($addedAttachments)." attachments","MAILSENDER");
+				if ($mail->Send())
+				{
+					$this->logger->addDebug("Email successfully sent","MAILSENDER");
 				}
-				// clean up the export directory
-				$this->logger->addDebug("Delete $addedAttachment out of the export directory.","MAILSENDER");
-				unlink("$exportPath/$addedAttachment");
+				else $this->logger->addError("Email couldn't be sent","MAILSENDER");
+
+				// backup attachments, delete from the main export path
+				foreach ($addedAttachments as $addedAttachment)
+				{
+					// check whether we can backup the exported files
+					if (is_dir("$exportBackupPath"))
+					{ // backup directory exists
+						$this->logger->addDebug("Add $addedAttachment to the backup directory.","MAILSENDER");
+						copy("$exportPath/$addedAttachment","$exportBackupPath/$addedAttachment");
+					}
+					// clean up the export directory
+					$this->logger->addDebug("Delete $addedAttachment out of the export directory.","MAILSENDER");
+					unlink("$exportPath/$addedAttachment");
+				}
 			}
+			$this->logger->addDebug("No files to export, abort.","MAILSENDER");
 		}
 		else $this->logger->addError("exportPath, sendFromMailAddress, sendFromFullName or sendToMailAddress may not set correctly in the config files, please check it!","MAILSENDER");
 	}
