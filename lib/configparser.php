@@ -3,8 +3,8 @@
  *
  * @file
  * @version 0.1
- * @copyright 2014 CN-Consult GmbH
- * @author Marcel Bohländer <marcel.bohlaender@cn-consult.eu>
+ * @copyright 2014 Marcel Bohländer
+ * @author Marcel Bohländer <marcel.bohlaender@gmx.de>
  */
 include_once(__DIR__."/../boot.php");
 
@@ -33,12 +33,13 @@ class ConfigParser
 	 * Returns the value of the given key. If the key isn't set it returns null.
 	 *
 	 * @param string $_key The key for which the value should be returned
+	 * @param mixed $_default The default value, if no value is set
 	 *
 	 * @return string|null
 	 */
-	public function get($_key)
+	public function get($_key, $_default = null)
 	{
 		if (isset($this->configValues[$_key])) return $this->configValues[$_key];
-		else return null;
+		else return $_default;
 	}
 }

@@ -3,7 +3,7 @@
  *
  * @file
  * @version 0.1
- * @copyright 2014 CN-Consult GmbH
+ * @copyright 2014 Marcel Bohländer
  * @author Marcel Bohländer <marcel-bohlaender@gmx.de>
  */
 
