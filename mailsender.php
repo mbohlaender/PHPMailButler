@@ -101,22 +101,23 @@ class MailSender
 				if ($mail->Send())
 				{
 					$this->logger->addDebug("Email successfully sent","MAILSENDER");
+                    // backup attachments, delete from the main export path
+                    foreach ($addedAttachments as $addedAttachment)
+                    {
+                        // check whether we can backup the exported files
+                        if (is_dir("$exportBackupPath"))
+                        { // backup directory exists
+                            $this->logger->addDebug("Add $addedAttachment to the backup directory.","MAILSENDER");
+                            copy("$exportPath/$addedAttachment","$exportBackupPath/$addedAttachment");
+                        }
+                        // clean up the export directory
+                        $this->logger->addDebug("Delete $addedAttachment out of the export directory.","MAILSENDER");
+                        unlink("$exportPath/$addedAttachment");
+                    }
 				}
 				else $this->logger->addError("Email couldn't be sent","MAILSENDER");
 
-				// backup attachments, delete from the main export path
-				foreach ($addedAttachments as $addedAttachment)
-				{
-					// check whether we can backup the exported files
-					if (is_dir("$exportBackupPath"))
-					{ // backup directory exists
-						$this->logger->addDebug("Add $addedAttachment to the backup directory.","MAILSENDER");
-						copy("$exportPath/$addedAttachment","$exportBackupPath/$addedAttachment");
-					}
-					// clean up the export directory
-					$this->logger->addDebug("Delete $addedAttachment out of the export directory.","MAILSENDER");
-					unlink("$exportPath/$addedAttachment");
-				}
+
 			}
 			$this->logger->addDebug("No files to export, abort.","MAILSENDER");
 		}
