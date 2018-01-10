@@ -16,7 +16,7 @@ class MailReceiver
 	private $configParser;
 	/** @var  Logger */
 	private $logger;
-
+	private $subPathDefinitions = array();
 	/**
 	 * Constructs a MailReceiver
 	 *
@@ -41,6 +41,13 @@ class MailReceiver
 		$mailServerPassword = $this->configParser->get("receiveMailServerPassword");
 		$importPath = $this->configParser->get("importPath");
 		$allowedIncomingMailAddresses = $this->configParser->get("allowedIncomingMailAddresses",array());
+		$unsplittedSubPathDefinitions = $this->configParser->get("importSubPathDefinitions",array());
+
+		foreach ($unsplittedSubPathDefinitions as $unsplittedSubPathDefinition)
+		{
+			$splittedDefinition = explode("|",$unsplittedSubPathDefinition);
+			$this->subPathDefinitions[$splittedDefinition[0]] = $splittedDefinition[1];
+		}
 
 		if ($mailServerAddress && $mailServerPort && $mailServerUsername && $mailServerPassword)
 		{
@@ -77,9 +84,11 @@ class MailReceiver
 
 						foreach ($attachments as $attachment)
 						{
+							$savePath = $importPath;
+							if (isset($this->subPathDefinitions[$from])) $savePath .= "/".$this->subPathDefinitions[$from];
 							// save attachments
-							$this->logger->addDebug("Try to save ".$attachment->getFilename()." ...","MAILRECEIVER");
-							if ($attachment->saveToDirectory($importPath))
+							$this->logger->addDebug("Try to save ".$attachment->getFilename()." to $savePath ...","MAILRECEIVER");
+							if ($attachment->saveToDirectory($savePath))
 							{ // saving attachment was successfully
 								$this->logger->addDebug("... ".$attachment->getFilename()." successfully saved","MAILRECEIVER");
 								$successfullySavedAttachments[] = $attachment->getFilename();
